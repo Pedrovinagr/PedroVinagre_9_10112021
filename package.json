@@ -7,6 +7,7 @@
   "author": "tdimnet <thomas.dimnet@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "concurrently": "^6.4.0",
     "nodemon": "^2.0.4"
   },
   "dependencies": {
@@ -16,6 +17,6 @@
   },
   "scripts": {
     "dev": "node_modules/.bin/nodemon app/index.js",
-    "start": "node app/index.js"
+    "start": "concurrently \"node app/index.js\" \"cd frontend && npm start\""
   }
 }
