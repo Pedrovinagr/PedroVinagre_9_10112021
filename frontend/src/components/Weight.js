@@ -19,25 +19,27 @@ class Weight extends React.Component {
 
     render() {
         return(
-            <BarChart
-            width={500}
-            height={300}
-            data={this.state.activityData}
-            margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-            }}
-            >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="day" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="kilogram" fill="#282D30" />
-            <Bar dataKey="calories" fill="#E60000" />
-            </BarChart>
+            <div className="weight">
+                <BarChart
+                width={500}
+                height={300}
+                data={this.state.activityData}
+                margin={{
+                    top: 5,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                }}
+                >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="day" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="kilogram" fill="#282D30" />
+                <Bar dataKey="calories" fill="#E60000" />
+                </BarChart>
+            </div>
         );
     }
 }

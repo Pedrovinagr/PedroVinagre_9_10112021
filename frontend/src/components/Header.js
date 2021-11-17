@@ -19,7 +19,7 @@ class Header extends React.Component {
     render() {
         if(this.state.userInfos != null){
             return(
-                <div>
+                <div className="Header">
                     <h1>Welcome {this.state.userInfos.firstName} {this.state.userInfos.lastName}!</h1>
                 </div>
             );

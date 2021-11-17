@@ -38,3 +38,12 @@
     left: 224px;
 
 }
+
+.nav{
+    position: absolute;
+    text-decoration: none;
+    right: 0;
+    padding-right: 50px;
+    
+    
+}
