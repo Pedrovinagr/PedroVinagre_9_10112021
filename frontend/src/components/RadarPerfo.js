@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
 
 class RadarPerfo extends React.Component {
 
@@ -8,7 +8,7 @@ class RadarPerfo extends React.Component {
         super(props);
         this.state = {
             perfoData: [],
-            kindData: ""
+            kindData: []
         };
     }
 
@@ -28,7 +28,7 @@ class RadarPerfo extends React.Component {
           <RadarChart width={500}
           height={300} cx="50%" cy="50%" outerRadius="80%" data={this.state.perfoData}>
           <PolarGrid />
-          <PolarAngleAxis data={this.state.kindData} dataKey="kind" />
+          <PolarAngleAxis data={this.state.kindData.findIndex} dataKey="kind" />
           <PolarRadiusAxis />
           <Radar name="Mike" dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
         </RadarChart>
