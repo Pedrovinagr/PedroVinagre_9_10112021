@@ -30,16 +30,18 @@ class NutrientCard extends React.Component {
             Lipides: Lipid,
           };
           
-        //   const UNIT_BY_TYPE = {
-        //     Calories: "kCal",
-        //     Glucides: "g",
-        //     Protéines: "g",
-        //     Lipides: "g",
-        //   };
+          const UNIT_BY_TYPE = {
+            Calories: "kCal",
+            Glucides: "g",
+            Protéines: "g",
+            Lipides: "g",
+          };
 
         return(
             <div>
                 <img src={ICON_BY_TYPE[this.props.type]} alt={this.props.type} width="60" height="60" />
+                {this.props.value}
+                {UNIT_BY_TYPE[this.props.type]}
             </div>
         );
     }
