@@ -23,12 +23,10 @@ class RadarPerfo extends React.Component {
 
     render() {
       return(
-        console.log(this.state.perfoData),
-        console.log(this.state.kindData),
-          <RadarChart width={500}
+        <RadarChart width={500}
           height={300} cx="50%" cy="50%" outerRadius="80%" data={this.state.perfoData}>
           <PolarGrid />
-          <PolarAngleAxis data={this.state.kindData.findIndex} dataKey="kind" />
+          <PolarAngleAxis data={this.state.kindData} dataKey="kind" />
           <PolarRadiusAxis />
           <Radar name="Mike" dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
         </RadarChart>
