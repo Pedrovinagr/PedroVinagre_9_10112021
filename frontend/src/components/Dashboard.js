@@ -1,8 +1,10 @@
 import React from "react";
-import Header from "./Header";
-import Weight from "./Weight";
-import Target from "./Target";
-import RadarPerfo from "./RadarPerfo";
+// import Header from "./Header";
+// import Weight from "./Weight";
+// import Target from "./Target";
+// import RadarPerfo from "./RadarPerfo";
+// import Score from "./Score";
+import NutrientGroup from "./NutrientGroup";
 
 class Dashboard extends React.Component {
 
@@ -13,10 +15,12 @@ class Dashboard extends React.Component {
     render() {
         return(
             <div className="dashboard">
-                <Header/>
+                {/* <Header/>
                 <Weight/>
                 <Target/>
                 <RadarPerfo/>
+                <Score/> */}
+                <NutrientGroup/>
             </div>
         );
     }
