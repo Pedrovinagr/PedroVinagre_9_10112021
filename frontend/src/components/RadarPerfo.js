@@ -8,7 +8,7 @@ class RadarPerfo extends React.Component {
         super(props);
         this.state = {
             perfoData: [],
-            kindData: []
+            kindData: ""
         };
     }
 
