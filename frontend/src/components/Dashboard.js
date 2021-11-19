@@ -16,13 +16,14 @@ class Dashboard extends React.Component {
         return(
             <div className="dashboard">
                 <Header/>
+                
+                <Weight/>
                 <div className="graph">
-                    <Weight/>
-                    {/* <Target/>
+                    <Target/>
                     <RadarPerfo/>
                     <Score/>
-                    <NutrientGroup/> */}
                 </div>
+                <NutrientGroup/>
             </div>
         );
     }

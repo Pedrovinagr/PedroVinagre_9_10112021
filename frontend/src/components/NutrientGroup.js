@@ -16,7 +16,6 @@ class NutrientGroup extends React.Component {
     componentDidMount() {
         axios.get("http://localhost:3001/user/12").then(response => {
             this.setState({keyData: response.data.data.keyData});
-            console.log(this.state.keyData)
         });
     }
 

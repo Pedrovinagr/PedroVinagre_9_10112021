@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 
 
 class Target extends React.Component {
@@ -21,24 +21,55 @@ class Target extends React.Component {
     render() {
         
         return(
-            <div className="Target">
+            <div className="target">
+                <h2 className="title_target">
+                    Durée moyenne des
+                    <br />
+                    sessions
+                </h2>
                 <LineChart
-                width={500}
-                height={300}
+                width={258}
+                height={263}
                 data={this.state.averageData}
                 margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
+                top: 0,
+                right: 12,
+                left: 12,
+                bottom: 24,
                 }}
                 >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="day" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="sessionLength" stroke="#8884d8" activeDot={{ r: 8 }} />
+                {/* <CartesianGrid strokeDasharray="3 3" /> */}
+                <XAxis 
+                    dataKey="day"
+                    stroke="rgba(255, 255, 255, 0.6)"
+                    axisLine={false}
+                    dy={10}
+                    tickLine={false}
+                    tick={{
+                        fontSize: 12,
+                        fontWeight: 500,
+                    }}
+                />
+                <YAxis 
+                    dataKey="sessionLength"
+                    domain={[0, "dataMax + 60"]}
+                    hide={true}
+                />
+                <Line 
+                    type="monotone" 
+                    dataKey="sessionLength" 
+                    stroke="rgba(255, 255, 255, 0.6)"
+                    strokeWidth={2}
+                    dot={false}
+                    activeDot={{
+                    stroke: "rgba(255,255,255, 0.6)",
+                    strokeWidth: 10,
+                    r: 5,
+                    }}
+                />
+                <Tooltip 
+                    cursor={{stroke: "rgba(0, 0, 0, 0.1)", strokeWidth: 32,}}
+                />
                 </LineChart>
             </div> 
         );

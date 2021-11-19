@@ -1,58 +1,60 @@
 import React from "react";
-// import axios from "axios";
-import { RadialBarChart, RadialBar, Legend } from 'recharts';
+import axios from "axios";
+import { Cell, Pie, PieChart } from "recharts";
 
 class Score extends React.Component {
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         perfoData: [],
-    //         kindData: []
-    //     };
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            scoreData: []
+        };
+    }
 
     componentDidMount() {
-        // axios.get("http://localhost:3001/user/12/performance").then(response => {
-        //   console.log(response)
-        //     this.setState({perfoData: response.data.data.data});
-        //     this.setState({kindData: response.data.data.kind});
-        //     console.log(this.state.perfoData);
-        //     console.log(this.state.kindData);
-        // });
+        axios.get("http://localhost:3001/user/12").then(response => {
+          console.log(response)
+          this.setState({scoreData: response.data.data.todayScore});
+        });
     }
 
     
 
     render() {
-      const data = [
-        {
-          name: '18-24',
-          uv: 31.47,
-          pv: 2400,
-          fill: '#8884d8',
-        },
-      ];
 
-      const style = {
-        top: '50%',
-        right: 0,
-        transform: 'translate(0, -50%)',
-        lineHeight: '24px',
-      };
+      const pieData = [
+        { name: "completed", value: this.state.scoreData, fillColor: "#E60000" },
+        { name: "not-completed", value: 1 - this.state.scoreData, fillColor: "transparent" },
+      ];
 
       return(
         <div className="score">
-          <RadialBarChart width={500} height={300} cx="50%" cy="50%" innerRadius="10%" outerRadius="80%" barSize={10} data={data}>
-            <RadialBar
-              minAngle={15}
-              label={{ position: 'insideStart', fill: '#fff' }}
-              background
-              clockWise
-              dataKey="uv"
-            />
-            <Legend iconSize={10} layout="vertical" verticalAlign="middle" wrapperStyle={style} />
-          </RadialBarChart>
+          <h2 className="title_score">Score</h2>
+          <PieChart width={258} height={263}>
+            <Pie
+              data={pieData}
+              dataKey="value"
+              innerRadius={70}
+              outerRadius={80}
+              startAngle={90}
+              endAngle={450}
+            >
+              {pieData.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={entry.fillColor}
+                  cornerRadius="50%"
+                />
+              ))}
+            </Pie>
+          </PieChart>
+          <p className="legend_score">
+            <span className="score_value">{`${100 * this.state.scoreData}%`}</span>
+            <br />
+            de votre
+            <br />
+            objectif
+          </p>
         </div>
       );
     }
