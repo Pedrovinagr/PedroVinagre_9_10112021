@@ -20,12 +20,11 @@ class Header extends React.Component {
         if(this.state.userInfos != null){
             return(
                 <div className="Header">
-                    <h1>Bonjour {this.state.userInfos.firstName}</h1>
-                    <span>
+                    <h1 className="welcome">Bonjour <span className="name">{this.state.userInfos.firstName}</span></h1>
+                    <span className="slogan">
                         Félicitations ! Vous avez explosé vos objectifs hier
                         !&nbsp;👏
                     </span>
-
                 </div>
             );
         }else{
