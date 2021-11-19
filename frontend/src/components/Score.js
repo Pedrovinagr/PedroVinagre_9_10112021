@@ -13,7 +13,6 @@ class Score extends React.Component {
 
     componentDidMount() {
         axios.get("http://localhost:3001/user/12").then(response => {
-          console.log(response)
           this.setState({scoreData: response.data.data.todayScore});
         });
     }

@@ -1,6 +1,5 @@
 import React from "react";
-// import axios from "axios";
-// import NutrientGroup from "./NutrientGroup";
+import axios from "axios";
 
 import Calorie from "../assets/Calorie.png";
 import Carbohydrate from "../assets/Carbohydrate.png";
@@ -9,39 +8,38 @@ import Lipid from "../assets/Lipid.png";
 
 class NutrientCard extends React.Component {
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         userInfos: null
-    //     }
-    // }
-
-    componentDidMount() {
-        // axios.get("http://localhost:3001/user/12").then(response => {
-        //     this.setState({userInfos: response.data.data.userInfos});
-        // });
-    }
-
     render() {
-        const ICON_BY_TYPE = {
+        const iconType = {
             Calories: Calorie,
             Glucides: Carbohydrate,
             Protéines: Protein,
             Lipides: Lipid,
           };
           
-          const UNIT_BY_TYPE = {
+          const unitType = {
             Calories: "kCal",
             Glucides: "g",
             Protéines: "g",
             Lipides: "g",
           };
 
+          const categoryType = {
+            Calories: "Calories",
+            Glucides: "Glucides",
+            Protéines: "Protéines",
+            Lipides: "Lipides",
+          };
+
+
         return(
-            <div>
-                <img src={ICON_BY_TYPE[this.props.type]} alt={this.props.type} width="60" height="60" />
-                {this.props.value}
-                {UNIT_BY_TYPE[this.props.type]}
+            <div className="nutrient_element">
+                <img src={iconType[this.props.type]} alt={this.props.type} width="60" height="60" />
+                <p className="nutrient_value">
+                    {this.props.value}
+                    {unitType[this.props.type]}
+                    <span className="nutrient_category"> {categoryType[this.props.type]} </span>
+                </p>
+                
             </div>
         );
     }

@@ -22,7 +22,7 @@ class NutrientGroup extends React.Component {
     render() {
 
         return(
-            <div>
+            <div className="nutrient_container">
                 <NutrientCard type="Calories" value={this.state.keyData.calorieCount} />
 
                 <NutrientCard type="Protéines" value={this.state.keyData.proteinCount} />
