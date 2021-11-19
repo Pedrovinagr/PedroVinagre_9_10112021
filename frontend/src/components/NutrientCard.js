@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 
 import Calorie from "../assets/Calorie.png";
 import Carbohydrate from "../assets/Carbohydrate.png";
