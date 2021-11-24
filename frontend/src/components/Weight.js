@@ -3,6 +3,12 @@ import axios from "axios";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import "../App.css";
 
+/**
+* class Weight
+* @Class Weight
+* @param {state} activityData:The source data of the content to be displayed of the in the componentDidMount following the link "http: // localhost: 3001 / user / 12 / activity"
+* @return {string} Weight completed with values
+*/
 class Weight extends React.Component {
 
     constructor(props) {
@@ -11,6 +17,12 @@ class Weight extends React.Component {
             activityData: []
         };
     }
+
+    /**
+    * Xaxis values customized
+    * @param {string} value received for Xaxis (date) 
+    * @return {string} keep only the last characters from the string(day), pushing string in the array of state activityData
+    */
 
     componentDidMount() {
         const customXaxis = [];
@@ -30,7 +42,15 @@ class Weight extends React.Component {
     }
 
     render() {
-    
+
+        /**
+        * graph customized
+        * customization of the graph with recharts
+        * @param {string} value received for the state 
+        * @return {string} 2 values on the y-axis => Kilogram and calories
+        * @return {string} day values on the x-axis
+        */
+
         return(
             <div className="weight">
                 <h2 className="title_weight">Activité quotidienne</h2>

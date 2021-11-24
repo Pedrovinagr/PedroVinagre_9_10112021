@@ -2,6 +2,12 @@ import React from "react";
 import axios from "axios";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts';
 
+/**
+* class RadarPerfo
+* @Class RadarPerfo
+* @param {state} perfoData:The source data of the content to be displayed of the in the componentDidMount following the link "http://localhost:3001/user/12/performance"
+* @return {string} RadarPerfo completed with values
+*/
 class RadarPerfo extends React.Component {
 
     constructor(props) {
@@ -10,6 +16,12 @@ class RadarPerfo extends React.Component {
             perfoData: []
         };
     }
+
+    /**
+    * Xaxis values customized
+    * @param {string} value received for Xaxis (kind) 
+    * @return {string} keep only the object value from the string (kind), pushing string in the array of state perfoData
+    */
 
     componentDidMount() {
       let graphData = []
@@ -29,6 +41,15 @@ class RadarPerfo extends React.Component {
 
     render() {
       return(
+
+        /**
+        * graph customized
+        * customization of the graph with recharts
+        * @param {string} value received for the state 
+        * @return {string} data values on the y-axis
+        * @return {string} The kind value on the x-axis
+        */
+
         <div className="radar">
           <RadarChart 
             width={298}

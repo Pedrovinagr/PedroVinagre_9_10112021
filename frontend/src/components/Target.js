@@ -2,7 +2,12 @@ import React from "react";
 import axios from "axios";
 import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 
-
+/**
+* class Target
+* @Class Target
+* @param {state} averageData:The source data of the content to be displayed of the in the componentDidMount following the link "http://localhost:3001/user/12/average-sessions"
+* @return {string} Target completed with values
+*/
 class Target extends React.Component {
 
     constructor(props) {
@@ -29,11 +34,26 @@ class Target extends React.Component {
             6: "S",
             7: "D",
           }
-        
+
+        /**
+        * Xaxis customized with array(day): transform the integer for a letter(day)
+        * @param {integer}
+        * @return {string} return the first letter of the day
+        */
+
         const CustomXaxis = (value) => {
             return day[value]
         }
         return(
+
+            /**
+            * graph customized
+            * customization of the graph with recharts
+            * @param {string} value received for the state 
+            * @return {string} sessionLength values on the y-axis
+            * @return {string} The firt value letter of every day on the x-axis
+            */
+
             <div className="target">
                 <h2 className="title_target">
                     Durée moyenne des
@@ -51,7 +71,6 @@ class Target extends React.Component {
                 bottom: 24,
                 }}
                 >
-                {/* <CartesianGrid strokeDasharray="3 3" /> */}
                 <XAxis 
                     dataKey="day"
                     stroke="rgba(255, 255, 255, 0.6)"

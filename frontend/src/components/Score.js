@@ -2,6 +2,12 @@ import React from "react";
 import axios from "axios";
 import { Cell, Pie, PieChart } from "recharts";
 
+/**
+* class Score
+* @Class Score
+* @param {state} scoreData:The source data of the content to be displayed of the in the componentDidMount following the link "http://localhost:3001/user/12"
+* @return {string} Score completed with values
+*/
 class Score extends React.Component {
 
     constructor(props) {
@@ -17,14 +23,19 @@ class Score extends React.Component {
         });
     }
 
-    
-
     render() {
 
       const pieData = [
         { name: "completed", value: this.state.scoreData, fillColor: "#E60000" },
         { name: "not-completed", value: 1 - this.state.scoreData, fillColor: "transparent" },
       ];
+
+      /**
+      * graph customized
+      * customization of the graph with recharts
+      * @param {string} pieData received for the state 
+      * @return {string}  values on the x-axis
+      */
 
       return(
         <div className="score">
