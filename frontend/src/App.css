@@ -26,7 +26,7 @@ html{
 }
 .nav_container{
     position: absolute;
-    width: 80%;
+    width: 70%;
     right: 0;
     top: 30px;
     align-items: flex-end;
@@ -37,9 +37,7 @@ html{
     color: #FFFFFF;
     font-size: 1.5rem;
     text-decoration: none;
-    text-align: right;
-    right: 0;
-    padding: 0.5rem 2rem;
+    padding: 0.2rem 7rem;
 }
 
 /* FOOTER */
@@ -64,7 +62,14 @@ html{
 }
 
 .copyright{
-    color: #020203;
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    transform: rotate(-90deg);
+    /* margin-top: 100%; */
+    padding-bottom: 95px;
+    width: 200px;
+    bottom: 100px;
 
 }
 
@@ -190,7 +195,7 @@ html{
 /* RADAR */
 .radar{
     position: relative;
-    width: 258px;
+    width: 300px;
     height: 263px;
     background: #2b2d30;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);

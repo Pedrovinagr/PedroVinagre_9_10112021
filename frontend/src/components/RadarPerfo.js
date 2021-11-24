@@ -33,7 +33,7 @@ class RadarPerfo extends React.Component {
       return(
         <div className="radar">
           <RadarChart 
-            width={258}
+            width={298}
             height={263}
             outerRadius={window.innerWidth > 1340 ? "70%" : "60%"}
             data={this.state.perfoData}
