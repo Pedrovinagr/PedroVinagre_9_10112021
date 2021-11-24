@@ -19,7 +19,20 @@ class Target extends React.Component {
     }
 
     render() {
+
+        const day = {
+            1: "L",
+            2: "M",
+            3: "M",
+            4: "J",
+            5: "V",
+            6: "S",
+            7: "D",
+          }
         
+        const CustomXaxis = (value) => {
+            return day[value]
+        }
         return(
             <div className="target">
                 <h2 className="title_target">
@@ -44,6 +57,7 @@ class Target extends React.Component {
                     stroke="rgba(255, 255, 255, 0.6)"
                     axisLine={false}
                     dy={10}
+                    tickFormatter={CustomXaxis}
                     tickLine={false}
                     tick={{
                         fontSize: 12,

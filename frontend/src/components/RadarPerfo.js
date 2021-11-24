@@ -24,8 +24,6 @@ class RadarPerfo extends React.Component {
               graphData.push(graphObject);
             }
             this.setState({perfoData: graphData});
-            console.log(this.state.perfoData)
-
         });
     }
 

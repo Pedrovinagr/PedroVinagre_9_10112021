@@ -13,27 +13,24 @@ class Weight extends React.Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:3001/user/12/activity").then(response => {
-            this.setState({activityData: response.data.data.sessions});
+        const customXaxis = [];
+        axios.get("http://localhost:3001/user/12/activity").then(response => {            
+            let data = response.data.data.sessions;
+            for (var i = 0; i < data.length; i++) {
+                var day = data[i].day;
+                var valueDay = day.substring(day.length-1);
+                let graphObject = {
+                    kilogram: data[i].kilogram,
+                    calories: data[i].calories,
+                    day: valueDay}
+                customXaxis.push(graphObject)
+            }
+            this.setState({activityData: customXaxis})
         });
     }
 
-    // CustomTooltip({ active, payload }) {
-    //     if (active && payload) {
-    //       return (
-    //         <div className="TooltipContainer">
-    //           <p className="TooltipLine" background="#2b2d30">
-    //             {`${payload[0].value} kg`}
-    //           </p>
-    //           <p className="TooltipLine" background="#74798c">
-    //             {`${payload[1].value} kCal`}
-    //           </p>
-    //         </div>
-    //       );
-    //     }
-    // }
-
     render() {
+    
         return(
             <div className="weight">
                 <h2 className="title_weight">Activité quotidienne</h2>
@@ -64,7 +61,7 @@ class Weight extends React.Component {
                     vertical={false}
                     stroke="#dedede"
                 />
-                <XAxis 
+                <XAxis
                     dataKey="day"
                     dy={16}
                     padding={{ left: -48, right: -48 }}
@@ -104,7 +101,6 @@ class Weight extends React.Component {
                     radius={[50, 50, 0, 0]}
                 />
                 <Tooltip 
-                    // content={<CustomTooltip />}
                     cursor={{fill: "rgba(0, 0, 0, 0.1)",}}
                 />
                 </BarChart>
