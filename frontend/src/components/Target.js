@@ -2,14 +2,13 @@ import React from "react";
 import axios from "axios";
 import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 
-/**
-* class Target
-* @Class Target
-* @param {state} averageData:The source data of the content to be displayed of the in the componentDidMount following the link "http://localhost:3001/user/12/average-sessions"
-* @return {string} Target completed with values
-*/
+/** @Class representing a Target*/
 class Target extends React.Component {
-
+    /**
+    * create a Target
+    * @param {props} averageData:The source data of the content to be displayed of the in the componentDidMount following the link "http://localhost:3001/user/12/average-sessions"
+    * @return {Array} completed with values
+    */
     constructor(props) {
         super(props);
         this.state = {
@@ -23,6 +22,16 @@ class Target extends React.Component {
         });
     }
 
+    /**
+    * Xaxis customized with array(day): transform the integer for a letter(day)
+    * @return {Object} return the first letter of the day
+    * 
+    * graph customized
+    * customization of the graph with recharts
+    * @return {string} sessionLength values on the y-axis
+    * @return {string} The firt value letter of every day on the x-axis
+    */
+
     render() {
 
         const day = {
@@ -35,25 +44,10 @@ class Target extends React.Component {
             7: "D",
           }
 
-        /**
-        * Xaxis customized with array(day): transform the integer for a letter(day)
-        * @param {integer}
-        * @return {string} return the first letter of the day
-        */
-
         const CustomXaxis = (value) => {
             return day[value]
         }
         return(
-
-            /**
-            * graph customized
-            * customization of the graph with recharts
-            * @param {string} value received for the state 
-            * @return {string} sessionLength values on the y-axis
-            * @return {string} The firt value letter of every day on the x-axis
-            */
-
             <div className="target">
                 <h2 className="title_target">
                     Durée moyenne des

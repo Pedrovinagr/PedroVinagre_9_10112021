@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from 'prop-types'
 import Calorie from "../assets/Calorie.png";
 import Carbohydrate from "../assets/Carbohydrate.png";
 import Protein from "../assets/Protein.png";
@@ -45,3 +45,7 @@ class NutrientCard extends React.Component {
 }
 
 export default NutrientCard;
+
+NutrientCard.propTypes = {
+  type: PropTypes.string.isRequired
+}
